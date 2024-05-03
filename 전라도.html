@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>전라도 전통시장</title>
+    
+</head>
+<body>
+<div id="map" style="width:100%;height:580px;"></div>
+
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d88ca8f1c2916960151011d64a2d5aa3"></script>
+<script>
+var mapContainer = document.getElementById('map'),   
+    mapOption = { 
+        center: new kakao.maps.LatLng(35.16013800081816, 126.85161891783433), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+ 
+
+var positions = [
+    {
+        content: '<div>군산공설시장</div>', 
+        latlng: new kakao.maps.LatLng(35.98339553, 126.7203108)
+    },
+    {
+        content: '<div>부안상설시장</div>', 
+        latlng: new kakao.maps.LatLng(35.72709183, 126.7329562)
+    },
+    {
+        content: '<div>김제전통시장</div>', 
+        latlng: new kakao.maps.LatLng(35.80162092, 126.8837192)
+    },
+    {
+        content: '<div>샘고을시장</div>', 
+        latlng: new kakao.maps.LatLng(35.56288864, 126.8551057)
+    },
+    {
+        content: '<div>고창전통시장</div>', 
+        latlng: new kakao.maps.LatLng(35.43257474, 126.6984275)
+    },
+    {
+        content: '<div>임실시장</div>', 
+        latlng: new kakao.maps.LatLng(35.61441901, 127.2826554)
+    },
+    {
+        content: '<div>장수시장</div>', 
+        latlng: new kakao.maps.LatLng(35.64910308, 127.5174715)
+    },
+    {
+        content: '<div>춘향골공설시장</div>', 
+        latlng: new kakao.maps.LatLng(35.40461666, 127.3758683)
+    },
+    {
+        content: '<div>순창시장</div>', 
+        latlng: new kakao.maps.LatLng(35.37186989, 127.1450594)
+    },
+    {
+        content: '<div>진안고원시장</div>', 
+        latlng: new kakao.maps.LatLng(35.79261818, 127.4294943)
+    },
+    {
+        content: '<div>무주반딧불시장</div>', 
+        latlng: new kakao.maps.LatLng(36.00465066, 127.6535323)
+    },
+    {
+        content: '<div>북부시장</div>', 
+        latlng: new kakao.maps.LatLng(35.95175704, 126.9579244)
+    },
+    {
+        content: '<div>전주남부시장</div>', 
+        latlng: new kakao.maps.LatLng(35.81298544, 127.1470103)
+    },
+    {
+        content: '<div>전주모래내시장</div>', 
+        latlng: new kakao.maps.LatLng(35.8335686, 127.1438698)
+    },
+    {
+        content: '<div>영광터미널시장</div>', 
+        latlng: new kakao.maps.LatLng(35.27553643, 126.5030195)
+    },
+    {
+        content: '<div>함평천지전통시장</div>', 
+        latlng: new kakao.maps.LatLng(35.06393189, 126.5233724)
+    },
+    {
+        content: '<div>무안군전통시장</div>', 
+        latlng: new kakao.maps.LatLng(34.99348701, 126.4724275)
+    },
+    {
+        content: '<div>지도재래시장</div>', 
+        latlng: new kakao.maps.LatLng(35.05881564, 126.2069818)
+    },
+    {
+        content: '<div>동부시장</div>', 
+        latlng: new kakao.maps.LatLng(34.80408944, 126.3920968)
+    },
+    {
+        content: '<div>진도전통시장</div>', 
+        latlng: new kakao.maps.LatLng(34.48138751, 126.2647829)
+    },
+    {
+        content: '<div>해남매일시장</div>', 
+        latlng: new kakao.maps.LatLng(34.57053049, 126.5986958)
+    },
+    {
+        content: '<div>완도읍5일시장</div>', 
+        latlng: new kakao.maps.LatLng(34.31610421, 126.7482463)
+    },
+    {
+        content: '<div>강진시장</div>', 
+        latlng: new kakao.maps.LatLng(34.63984332, 126.7736037)
+    },
+    {
+        content: '<div>영암5일시장</div>', 
+        latlng: new kakao.maps.LatLng(34.80123919, 126.7005657)
+    },
+    {
+        content: '<div>나주목사고을시장</div>', 
+        latlng: new kakao.maps.LatLng(35.03624619, 126.7237675)
+    },
+    {
+        content: '<div>화순고인돌전통시장</div>', 
+        latlng: new kakao.maps.LatLng(35.05956758, 126.9835456)
+    },
+    {
+        content: '<div>정남진장흥토요시장</div>', 
+        latlng: new kakao.maps.LatLng(34.67727214, 126.9031396)
+    },
+    {
+        content: '<div>녹차골보성향토시장</div>', 
+        latlng: new kakao.maps.LatLng(34.76513347, 127.0775721)
+    },
+    {
+        content: '<div>고흥전통시장</div>', 
+        latlng: new kakao.maps.LatLng(34.60835811, 127.2866002)
+    },
+    {
+        content: '<div>벌교시장</div>', 
+        latlng: new kakao.maps.LatLng(34.84450331, 127.3456365)
+    },
+    {
+        content: '<div>아랫장</div>', 
+        latlng: new kakao.maps.LatLng(34.94560933, 127.4946418)
+    },
+    {
+        content: '<div>여수수산시장</div>', 
+        latlng: new kakao.maps.LatLng(34.7368326, 127.7328889)
+    },
+    {
+        content: '<div>중마시장</div>', 
+        latlng: new kakao.maps.LatLng(34.93820312, 127.6988496)
+    },
+    {
+        content: '<div>구례5일장</div>', 
+        latlng: new kakao.maps.LatLng(35.20962446, 127.4657567)
+    },
+    {
+        content: '<div>곡성기차마을전통시장</div>', 
+        latlng: new kakao.maps.LatLng(35.27952674, 127.2989265)
+    },
+    {
+        content: '<div>담양시장</div>', 
+        latlng: new kakao.maps.LatLng(35.32279856, 126.9804901)
+    },
+    {
+        content: '<div>황룡시장</div>', 
+        latlng: new kakao.maps.LatLng(35.29168517, 126.7738898)
+    },
+    {
+        content: '<div>광주양동전통시장</div>', 
+        latlng: new kakao.maps.LatLng(35.15390747, 126.9025577)
+    },
+    {
+        content: '<div>무등시장</div>', 
+        latlng: new kakao.maps.LatLng(35.13592608, 126.8945422)
+    },
+    {
+        content: '<div>1913송정역시장</div>',
+        latlng: new kakao.maps.LatLng(35.13634904, 126.7919825)
+    }
+
+];
+
+for (var i = 0; i < positions.length; i ++) {
+    
+    var marker = new kakao.maps.Marker({
+        map: map, 
+        position: positions[i].latlng 
+    });
+
+    
+    var infowindow = new kakao.maps.InfoWindow({
+        content: positions[i].content 
+    });
+
+    
+    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+}
+
+
+function makeOverListener(map, marker, infowindow) {
+    return function() {
+        infowindow.open(map, marker);
+    };
+}
+
+
+function makeOutListener(infowindow) {
+    return function() {
+        infowindow.close();
+    };
+}
+
+</script>
+</body>
+</html>
