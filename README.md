@@ -14,7 +14,7 @@
 - 시장명 데이터를 수집해 엑셀 파일로 데이터를 정리
 
 
-**시장 정리.xlsx에 전체 정보 저장, 각 도 별로는 Market_data에 정리**
+- **시장 정리.xlsx에 전체 정보 저장, 각 도 별로는 Market_data에 정리**
 
 
 - 시장명, 주소, 위도경도 메뉴로 구분
@@ -24,7 +24,7 @@
 - 주소-> 위도경도 변환은 아래 사이트 이용
 
 
-[변환 작업 시 이용한 사이트](https://deveapp.com/map.php)
+- [변환 작업 시 이용한 사이트](https://deveapp.com/map.php)
 
 
 
@@ -34,7 +34,7 @@
 - 카카오맵 api를 이용해서 시장 정보를 지도상에 표시하는 작업 진행
 
 
-[카카오맵 api](https://apis.map.kakao.com/) 
+- [카카오맵 api](https://apis.map.kakao.com/) 
 
 
 - Android, Web, iOS 중 Web 사용
